@@ -1,30 +1,78 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <div class="app">
+    <div class="header">
+        <div>
+            UrWallet
+        </div>
+        <div class="header__anchors">
+         <div>
+            Exps by category
+         </div>
+         <div>
+             Exps by month
+         </div>
+         <div>
+            Contacts
+         </div>
+        </div>
+    </div>
+    <input-section/>
+</div>
+    
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import InputSection from '@/components/InputSection.vue'
+
+
+export default {
+    components: {
+
+        InputSection,
+        
+    },
+data() {
+
+    return {
+
+        likes:0,
+    }
+
+}
 }
 
-nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style>
+* {
+    box-sizing: border-box;}
+html {
+    width: 1820px;
+    width: 100%;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+}
+body {
+
+    margin: 0;
+    padding: 0;
+    width: 1820px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.header {
+    padding-top: 20px;
+    display:flex;
+    justify-content: space-between;
+    font-size: 50px;
+    align-items: center;
+
+}
+.header__anchors {
+    
+    display:flex;
+    gap: 30px;
+    font-size: 20px;
+
 }
 </style>
