@@ -16,28 +16,37 @@
          </div>
         </div>
     </div>
-    <input-section/>
+    
+    <input-section @create="createPost"/>
+    <exps-list :exps="exps"
+    />
 </div>
     
 </template>
 
 <script>
 import InputSection from '@/components/InputSection.vue'
-
+import ExpsList from './components/ExpsList.vue';
 
 export default {
     components: {
 
-        InputSection,
+        InputSection,ExpsList,
         
     },
 data() {
 
     return {
 
-        likes:0,
+        
+        exps:['kek','ef'],
     }
 
+},
+methods: {
+    createPost(exps) {
+        this.exps.push(exps)
+    }
 }
 }
 
