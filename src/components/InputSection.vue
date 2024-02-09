@@ -1,20 +1,22 @@
 <template>
     <div class="MainSection">
+        Enter spending
         <div class="inputSection__Fields">
-        <input :value="exps.sum" @input="exps.sum = $event.target.value" class="inputField" type="text">
-        <input @click="createPost" class="inputField__submit" type="submit" value="Потратить">
+            
+        <input :value="exps.sum"  @input="exps.sum = $event.target.value" class="inputField" type="number" required>
+        <input v-show="exps.category && exps.sum>0" @click="createPost" class="inputField__submit" type="submit" value="Потратить">
         </div>
-        <div class="InputSection__categories"> Категория трат
+        <div class="InputSection__categories"> Choose category
             <div class="InputSection__categories__buttons">
-            <input  class="InputSection__categories__button" id="one" type="radio" value="food" v-model="exps.category">
+            <input  class="InputSection__categories__button" id="one" type="radio" value="food" v-model="exps.category"  >
             <label for="one">food</label>
-            <input class="InputSection__categories__button" id="two" type="radio" value="transport" v-model="exps.category">
+            <input class="InputSection__categories__button" id="two" type="radio" value="transport" v-model="exps.category" >
             <label for="two">transport</label>
-            <input class="InputSection__categories__button"  id="three" type="radio" value="entertainment" v-model="exps.category">
+            <input class="InputSection__categories__button"  id="three" type="radio" value="entertainment" v-model="exps.category" >
             <label for="three">entertainment</label>
-            <input class="InputSection__categories__button"  id="four" type="radio" value="electronic" v-model="exps.category">
+            <input class="InputSection__categories__button"  id="four" type="radio" value="electronic" v-model="exps.category" >
             <label for="four">electronic</label>
-            <input class="InputSection__categories__button" id="five" type="radio" value="clothes" v-model="exps.category">
+            <input class="InputSection__categories__button" id="five" type="radio" value="clothes" v-model="exps.category" >
             <label for="five">clothes</label>
             </div>
         </div>
@@ -23,25 +25,37 @@
 </template>
 
 <script>
+
 export default {
+   
     data() {
         return {
+            
             exps: {
-                sum:'',
+                sum: {
+                    type:Number,
+                },
+                category: '',
             }
         }
     },
     methods: {
         createPost() {
+            
             this.exps.id =Date.now();
+            this.exps.sum = this.exps.sum + ' dollars'
             this.$emit('create', this.exps)
             this.exps = {
                 sum: '',
                 category:'',
             }
+           
+            
+            
         },
         
-    }
+    },
+    
 }
 </script>
 
@@ -67,6 +81,11 @@ export default {
     border-radius: 10px;
     width: 300px;
     
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .inputField__submit {
     border: 3px solid blue;
