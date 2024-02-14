@@ -118,5 +118,32 @@ border: 3px solid black;
     cursor: pointer;
     
 }
-
+.InputSection__categories__buttons input[type=radio] {
+	display: none;
+}
+.InputSection__categories__buttons label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 34px;
+	border: 1px solid #999;
+	border-radius: 6px;
+	user-select: none;
+}
+ 
+/* Checked */
+.InputSection__categories__buttons input[type=radio]:checked + label {
+	background: #ffe0a6;
+}
+ 
+/* Hover */
+.InputSection__categories__buttons label:hover {
+	color: #666;
+}
+ 
+/* Disabled */
+.InputSection__categories__buttons input[type=radio]:disabled + label {
+	background: #efefef;
+	color: #666;
+}
 </style>

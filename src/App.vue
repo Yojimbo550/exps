@@ -63,6 +63,7 @@ methods: {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;1,500&display=swap');
 * {
     box-sizing: border-box;}
 html {
@@ -77,6 +78,7 @@ body {
     width: 1620px;
     margin-left: auto;
     margin-right: auto;
+    font-family:'Nunito',sans-serif;
     
 }
 .header {

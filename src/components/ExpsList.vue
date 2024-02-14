@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul>
-            <div v-for="exp in exps" :key="exp.id">
-                {{ exp.sum }}
-                {{ exp.category }}
+            <div class="expsList" v-for="exp in exps" :key="exp.id">
+                <div>{{ exp.sum }}</div> 
+                <div>{{ exp.category }}</div>
             </div>
         </ul>
     </div>
@@ -26,5 +26,9 @@ export default {
 </script>
 
 <style>
-
+.expsList {
+    display:flex;
+    justify-content: space-between;
+    
+}
 </style>
