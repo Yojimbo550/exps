@@ -4,7 +4,7 @@
         <div class="inputSection__Fields">
             
         <input :value="exps.sum"  @input="exps.sum = $event.target.value" class="inputField" type="number" required>
-        <input v-show="exps.category && exps.sum>0" @click="createPost" class="inputField__submit" type="submit" value="Потратить">
+        <input v-show="exps.category && exps.sum>0" @click="createPost" class="inputField__submit" type="submit" value="Spend">
         </div>
         <div class="InputSection__categories"> Choose category
             <div class="InputSection__categories__buttons">
@@ -36,6 +36,9 @@ export default {
                     type:Number,
                 },
                 category: '',
+                id:{
+                    type:Number,
+                }
             }
         }
     },
@@ -43,7 +46,7 @@ export default {
         createPost() {
             
             this.exps.id =Date.now();
-            this.exps.sum = this.exps.sum + ' dollars'
+            this.exps.sum = this.exps.sum + ' coins'
             this.$emit('create', this.exps) 
             localStorage.setItem(Date.now(), JSON.stringify(this.exps));
             this.exps = {
@@ -74,6 +77,9 @@ export default {
     gap: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
+
+    padding-left: 100px;
+    padding-right: 100px;
 }
 .inputSection__Fields {
     display: flex;

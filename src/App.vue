@@ -18,8 +18,14 @@
     </div>
     
     <input-section @create="createPost"/>
+    <div class="exps">
     <exps-list :exps="exps"
     />
+        <div class="exps-filter">
+        <div>фильтр по месяцам</div>
+        <div>фильтр по категориям</div>
+        </div>
+    </div>
 </div>
     
 </template>
@@ -39,7 +45,7 @@ data() {
     return {
 
         
-        exps:['kek','ef'],
+        exps:[],
     }
 
 },
@@ -75,7 +81,7 @@ body {
 
     margin: 0;
     padding: 0;
-    width: 1620px;
+    /* width: 1620px; */
     margin-left: auto;
     margin-right: auto;
     font-family:'Nunito',sans-serif;
@@ -87,7 +93,8 @@ body {
     justify-content: space-between;
     font-size: 50px;
     align-items: center;
-
+    padding-left: 100px;
+    padding-right: 100px;
 }
 .header__anchors {
     
@@ -95,5 +102,11 @@ body {
     gap: 30px;
     font-size: 20px;
 
+}
+.exps {
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
+    gap: 20px;
 }
 </style>
