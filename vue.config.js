@@ -5,4 +5,10 @@ module.exports = defineConfig({
   
 })
 
-
+module.exports = {
+  pwa: {
+      workboxOptions: {
+          skipWaiting: true
+      }
+  }
+}
